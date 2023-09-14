@@ -1,0 +1,6 @@
+SELECT DISTINCT salary
+FROM employees
+ORDER BY salary DESC
+LIMIT 1 OFFSET 2;
+
+This thesis delves into the fundamental mathematical concept of limits and its widespread applications in various fields. Limits are a cornerstone of calculus, providing a rigorous framework to understand continuity, convergence, and differentiation. Beyond mathematics, the concept of limits finds applications in physics, engineering, economics, and computer science. This work aims to elucidate the significance of limits, their historical development, theoretical foundations, and practical implications across disciplines.

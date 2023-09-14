@@ -1,0 +1,36 @@
+class ListNode:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+def reverse_iterative(head):
+    prev = None
+    current = head
+    
+    while current:
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+    
+    return prev
+
+# Example usage
+# Create a linked list
+original_head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+
+print("Original linked list:")
+current = original_head
+while current:
+    print(current.value, end=" -> ")
+    current = current.next
+print("None")
+
+new_head = reverse_iterative(original_head)
+
+print("\nReversed linked list (iterative):")
+current = new_head
+while current:
+    print(current.value, end=" -> ")
+    current = current.next
+print("None")

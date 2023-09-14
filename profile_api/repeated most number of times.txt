@@ -1,0 +1,20 @@
+def most_common_character(arr):
+    char_count = {}
+    
+    for char in arr:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
+    
+    most_common_char = max(char_count, key=char_count.get)
+    max_count = char_count[most_common_char]
+    
+    return most_common_char, max_count
+
+# Example usage
+input_arr = ['a', 'b', 'b', 'c', 'c', 'c', 'd', 'd', 'd', 'd']
+most_common, count = most_common_character(input_arr)
+
+print("Most common character:", most_common)
+print("Number of occurrences:", count)

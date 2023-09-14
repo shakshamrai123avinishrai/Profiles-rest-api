@@ -1,0 +1,22 @@
+class ListNode:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+def reverse_recursive(head):
+    if not head or not head.next:
+        return head
+    
+    new_head = reverse_recursive(head.next)
+    head.next.next = head
+    head.next = None
+    return new_head
+
+# Example usage (continuing from above)
+print("\nReversed linked list (recursive):")
+recursive_head = reverse_recursive(new_head)
+current = recursive_head
+while current:
+    print(current.value, end=" -> ")
+    current = current.next
+print("None")

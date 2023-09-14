@@ -1,0 +1,6 @@
+Automated precise ".arxml" node mapping using regular expressions and Python data structures, reducing manual effort by 2.5x and enhancing efficiency by 45%.
+Conducted a code scan using SonarQube, which helped identify and remove code smells, resulting in a remarkable 90% reduction in code smell instances and significantly improved code maintainability.
+Created user-friendly tkinter GUI for intuitive input and result visualization.
+Developed Python unit tests for a new tool, ensuring reliability by passing all methods in the test script.
+Fixed Java 11 issue with Launch4j, making the app compatible and executable as a .exe file.
+

@@ -1,0 +1,29 @@
+class ListNode:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+def get_intersection_node(headA, headB):
+    if not headA or not headB:
+        return None
+    
+    pointerA = headA
+    pointerB = headB
+    
+    while pointerA != pointerB:
+        pointerA = pointerA.next if pointerA else headB
+        pointerB = pointerB.next if pointerB else headA
+    
+    return pointerA
+
+# Example usage
+# Create linked lists
+common_node = ListNode(8, ListNode(9, ListNode(10)))
+listA = ListNode(1, ListNode(2, common_node))
+listB = ListNode(3, ListNode(4, ListNode(5, common_node)))
+
+intersection = get_intersection_node(listA, listB)
+if intersection:
+    print("Intersection point value:", intersection.value)
+else:
+    print("No intersection point")

@@ -1,0 +1,72 @@
+class ListNode:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+def get_length(head):
+    length = 0
+    current = head
+    while current:
+        length += 1
+        current = current.next
+    return length
+
+def swap_kth_and_kth_to_last(head, k):
+    length = get_length(head)
+    
+    if k <= 0 or k > length:
+        return head
+    
+    # Find the kth and (length - k + 1)th nodes
+    prev_kth = None
+    kth = head
+    for _ in range(k - 1):
+        prev_kth = kth
+        kth = kth.next
+    
+    prev_kth_to_last = None
+    kth_to_last = head
+    for _ in range(length - k):
+        prev_kth_to_last = kth_to_last
+        kth_to_last = kth_to_last.next
+    
+    # Swap values of kth and kth-to-last nodes
+    if prev_kth:
+        prev_kth.value, kth_to_last.value = kth_to_last.value, prev_kth.value
+    
+    return head
+
+# Utility function to create a linked list from a list of values
+def create_linked_list(values):
+    if not values:
+        return None
+    
+    head = ListNode(values[0])
+    current = head
+    
+    for value in values[1:]:
+        current.next = ListNode(value)
+        current = current.next
+    
+    return head
+
+# Utility function to print linked list
+def print_linked_list(head):
+    current = head
+    while current:
+        print(current.value, end=" -> ")
+        current = current.next
+    print("None")
+
+# Example usage
+values = [1, 2, 3, 4, 5, 6, 7, 8]
+k = 3
+linked_list = create_linked_list(values)
+
+print("Original linked list:")
+print_linked_list(linked_list)
+
+new_head = swap_kth_and_kth_to_last(linked_list, k)
+
+print("Linked list after swapping kth and kth-to-last elements:")
+print_linked_list(new_head)

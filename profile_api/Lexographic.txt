@@ -1,0 +1,26 @@
+def find_lowest_substring(s, k):
+    left = 0
+    min_length = float('inf')
+    min_substring = ""
+
+    ones_count = 0
+    for right in range(len(s)):
+        if s[right] == '1':
+            ones_count += 1
+        
+        while ones_count == k:
+            if right - left + 1 < min_length:
+                min_length = right - left + 1
+                min_substring = s[left:right+1]
+            
+            if s[left] == '1':
+                ones_count -= 1
+            left += 1
+
+    return min_substring
+
+# Example usage
+input_string = "0010010101"
+k = 3
+result = find_lowest_substring(input_string, k)
+print("Lexicographically lowest substring containing", k, "1s:", result)

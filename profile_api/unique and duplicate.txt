@@ -1,0 +1,18 @@
+def find_unique_and_duplicate_elements(arr):
+    unique_elements = set()
+    duplicate_elements = set()
+    
+    for num in arr:
+        if num in unique_elements:
+            duplicate_elements.add(num)
+        else:
+            unique_elements.add(num)
+    
+    return list(unique_elements), list(duplicate_elements)
+
+# Example usage
+arr = [1, 2, 3, 4, 3, 2, 5, 6, 7, 7]
+unique, duplicates = find_unique_and_duplicate_elements(arr)
+
+print("Unique elements:", unique)
+print("Duplicate elements:", duplicates)
